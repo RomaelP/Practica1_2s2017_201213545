@@ -1,0 +1,13 @@
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\bin\Debug\PR1_EDD.exe.config
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\bin\Debug\PR1_EDD.exe
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\bin\Debug\PR1_EDD.pdb
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.csprojResolveAssemblyReference.cache
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.FormMN.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.FormDashboard.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.Properties.Resources.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.csproj.GenerateResource.Cache
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.exe
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.pdb
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.AdministradorMSJS.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.EnviarMensaje.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.VerReportes.resources
