@@ -52,6 +52,7 @@
             this.BVerC.TabIndex = 1;
             this.BVerC.Text = "Ver Cola De Mensajes";
             this.BVerC.UseVisualStyleBackColor = true;
+            this.BVerC.Click += new System.EventHandler(this.BVerC_Click);
             // 
             // BVerR
             // 

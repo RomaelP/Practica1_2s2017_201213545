@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Management;
 
 namespace PR1_EDD
 {
     class AnalizadorJS
     {
+        
         public static void Analizador(String CadenaTexto)
         {
             int EsInicio = 0; //el que va moviendo los hilos 
@@ -19,14 +21,14 @@ namespace PR1_EDD
             string mask = "";
             string Nip = "";
             string Nmask = "";
-
+            
             for (EsInicio = 0; EsInicio < CadenaTexto.Length; EsInicio++)
             {
                 ConCadena = CadenaTexto[EsInicio];
 
                 switch (EsPrincipal)
                 {
-                    case 0:
+                    case 0: 
                         switch (ConCadena)
                         {
                             case ' ':
@@ -65,6 +67,9 @@ namespace PR1_EDD
                         }
                         else if (ConCadena.Equals(','))
                         {
+                            FormDashboard.CargarDatos("Vacio",Nip,"255.255.255.0");
+                            Console.WriteLine("*****estoy probando y funciono la IP ES" + Nip);
+                            varGlobales.IpACambiar = Nip;
                             EsPrincipal = 2;
                         }
                         break;//caso1
@@ -132,10 +137,28 @@ namespace PR1_EDD
                     case 6://estado final
                         Ip = "";
                         mask = "";
-                        Console.WriteLine("IP a Cambiar " + Nip);
-                        Console.WriteLine("Mascara de Red " + Nmask);
                         EsPrincipal = 0;
                         break;
+                }
+            }
+        }
+
+        public static void cambiarIp(string dirIP, string mascara)
+        {
+            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMC.GetInstances();
+
+            foreach(ManagementObject objMO in objMOC)
+            {
+                if((bool) objMO["IPEnabled"])
+                {
+                    try{
+                        ManagementBaseObject cambiarIP;
+                        ManagementBaseObject newIP = objMO.GetMethodParameters("EnabledStatic");
+                        newIP["IPAddress"] = new string[] { dirIP };
+                        newIP["SubnetMask"] = new string[] { mascara };
+                        cambiarIP = objMO.InvokeMethod("EnableStatic",newIP,null);
+                    }catch (Exception) {throw;}
                 }
             }
         }

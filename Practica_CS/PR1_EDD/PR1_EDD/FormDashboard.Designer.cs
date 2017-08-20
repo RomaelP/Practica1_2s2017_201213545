@@ -38,6 +38,7 @@
             this.Btrs = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.etiqueta1 = new System.Windows.Forms.Label();
+            this.EtiquetaIp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +106,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 45000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // etiqueta1
@@ -115,17 +117,29 @@
             this.etiqueta1.Size = new System.Drawing.Size(0, 13);
             this.etiqueta1.TabIndex = 8;
             // 
+            // EtiquetaIp
+            // 
+            this.EtiquetaIp.AutoSize = true;
+            this.EtiquetaIp.Location = new System.Drawing.Point(12, 283);
+            this.EtiquetaIp.Name = "EtiquetaIp";
+            this.EtiquetaIp.Size = new System.Drawing.Size(91, 13);
+            this.EtiquetaIp.TabIndex = 9;
+            this.EtiquetaIp.Text = "______________";
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 287);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(606, 325);
+            this.Controls.Add(this.EtiquetaIp);
             this.Controls.Add(this.etiqueta1);
             this.Controls.Add(this.Btrs);
             this.Controls.Add(this.BotonCJ);
             this.Controls.Add(this.dgv1);
             this.Name = "FormDashboard";
-            this.Text = "FormDashboard";
+            this.RightToLeftLayout = true;
+            this.Text = "Dashboard";
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,5 +157,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label etiqueta1;
+        private System.Windows.Forms.Label EtiquetaIp;
     }
 }

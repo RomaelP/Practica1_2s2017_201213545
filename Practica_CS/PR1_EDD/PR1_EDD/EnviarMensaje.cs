@@ -66,7 +66,7 @@ namespace PR1_EDD
                 MessageBox.Show("Mesaje Enviado", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }catch(Exception x)
             {
-                MessageBox.Show("Mesaje Enviado", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mesaje No Enviado", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine(x);
             }
         }

@@ -19,7 +19,8 @@ namespace PR1_EDD
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            RespuestasMensajes RM1 = new RespuestasMensajes();
+            RM1.Show();
         }
 
         private void BEnviarM_Click(object sender, EventArgs e)
@@ -31,6 +32,13 @@ namespace PR1_EDD
         private void BAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void BVerC_Click(object sender, EventArgs e)
+        {
+            ColaMensajes CLM1 = new ColaMensajes();
+            CLM1.Show();
+            ///codigo para mandar a llamar a la lista que contenga los mensajes recibidos sin mostrar ninguno
         }
     }
 }

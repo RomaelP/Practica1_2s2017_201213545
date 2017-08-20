@@ -25,6 +25,7 @@ namespace PR1_EDD
         private void BotonCJ_Click(object sender, EventArgs e)
         {
             AbrirArchivo();
+            
         }
 
         private void AbrirArchivo()//metodo para abrir el archivo JSON, llama al analizador y obtienen los valores del archivo
@@ -46,11 +47,14 @@ namespace PR1_EDD
                 MessageBox.Show("Ocurrio un Error al Abrir el Archivo", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 etiqueta1.Text = "NO SE CARGARON LOS DATOS";
             }
+            
             LLenarIPS();//llamada al metod llenarIPS
             //aqui la llamada al timer
             MostrarLista();//llamada al metodo para mostrar datos en el dashboard
-            MetodoPOSTLista();//manda los elementos al WS para guardar en una lista en Python
-            etiqueta1.Text = "DATOS CARGADO";
+            MetodoPOSTLista();//manda los elementos al WS para guardar en una lista en Python   
+            EtiquetaIp.Text = "Nodo Actual: "+varGlobales.IpACambiar;
+            timer1.Start();
+            etiqueta1.Text = "DATOS CARGADOS";
         }
 
         public void MetodoPOSTLista()//metodo POST manda parametros a guardar a la lista Python
@@ -65,7 +69,7 @@ namespace PR1_EDD
                         vEnviar["carnet"] = nod.carnet;
                         vEnviar["ip"] = nod.ip;
                         vEnviar["mascara"] = nod.mascara;
-                        Console.WriteLine(nod.carnet +"");    
+                        //Console.WriteLine(nod.carnet +"");    
                     }
                 }
             }
@@ -151,7 +155,9 @@ namespace PR1_EDD
 
         private void timer1_Tick_1(object sender, EventArgs e)//timer para ejecutar la llamada a cada 20 segundos
         {
-
+            LLenarIPS();
+            MostrarLista();//llamada al metodo para mostrar datos en el dashboard
+            MetodoPOSTLista();
         }
     }
 

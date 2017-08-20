@@ -11,3 +11,5 @@ C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1
 C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.AdministradorMSJS.resources
 C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.EnviarMensaje.resources
 C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.VerReportes.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.ColaMensajes.resources
+C:\Users\USuario1\Desktop\Practica1EDD\Practica_CS\PR1_EDD\PR1_EDD\obj\Debug\PR1_EDD.RespuestasMensajes.resources

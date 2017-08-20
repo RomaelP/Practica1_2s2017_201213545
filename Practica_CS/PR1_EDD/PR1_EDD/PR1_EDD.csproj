@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,12 @@
       <DependentUpon>AdministradorMSJS.cs</DependentUpon>
     </Compile>
     <Compile Include="AnalizadorJS.cs" />
+    <Compile Include="ColaMensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColaMensajes.Designer.cs">
+      <DependentUpon>ColaMensajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnviarMensaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +78,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespuestasMensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RespuestasMensajes.Designer.cs">
+      <DependentUpon>RespuestasMensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="varGlobales.cs" />
     <Compile Include="VerReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="AdministradorMSJS.resx">
       <DependentUpon>AdministradorMSJS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColaMensajes.resx">
+      <DependentUpon>ColaMensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnviarMensaje.resx">
       <DependentUpon>EnviarMensaje.cs</DependentUpon>
@@ -99,6 +116,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RespuestasMensajes.resx">
+      <DependentUpon>RespuestasMensajes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VerReportes.resx">
       <DependentUpon>VerReportes.cs</DependentUpon>
     </EmbeddedResource>
