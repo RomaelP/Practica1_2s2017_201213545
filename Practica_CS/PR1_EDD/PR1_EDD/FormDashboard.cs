@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Collections.Specialized;
+using System.Management;
 
 namespace PR1_EDD
 {
@@ -53,6 +54,8 @@ namespace PR1_EDD
             MostrarLista();//llamada al metodo para mostrar datos en el dashboard
             MetodoPOSTLista();//manda los elementos al WS para guardar en una lista en Python   
             EtiquetaIp.Text = "Nodo Actual: "+varGlobales.IpACambiar+" - 201213545";
+            setIP(varGlobales.IpACambiar,"255.255.255.0");
+
             timer1.Start();
             etiqueta1.Text = "DATOS CARGADOS";
         }
@@ -158,6 +161,30 @@ namespace PR1_EDD
             LLenarIPS();
             MostrarLista();//llamada al metodo para mostrar datos en el dashboard
             MetodoPOSTLista();
+        }
+
+        public static void setIP(string ip_add, string subnet_mask)
+        {
+            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMC.GetInstances();
+
+            foreach (ManagementObject objMO in objMOC)
+            {
+                if ((bool)objMO["IPEnabled"])
+                {
+                    try
+                    {
+                        ManagementBaseObject setIP;
+                        ManagementBaseObject newIP = objMO.GetMethodParameters("EnabledStatic");
+                        newIP["IPAddress"] = new string[] { ip_add };
+                        newIP["SubnetMask"] = new string[] {subnet_mask};
+                        setIP = objMO.InvokeMethod("EnableStatic", newIP, null);
+                    }
+                    catch (Exception exp) {
+                        Console.WriteLine(exp);
+                    }
+                }
+            }
         }
     }
 

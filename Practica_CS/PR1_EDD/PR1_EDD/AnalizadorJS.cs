@@ -143,26 +143,6 @@ namespace PR1_EDD
             }
         }
 
-        public static void cambiarIp(string dirIP, string mascara)
-        {
-            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
-            ManagementObjectCollection objMOC = objMC.GetInstances();
-
-            foreach(ManagementObject objMO in objMOC)
-            {
-                if((bool) objMO["IPEnabled"])
-                {
-                    try{
-                        ManagementBaseObject cambiarIP;
-                        ManagementBaseObject newIP = objMO.GetMethodParameters("EnabledStatic");
-                        newIP["IPAddress"] = new string[] { dirIP };
-                        newIP["SubnetMask"] = new string[] { mascara };
-                        cambiarIP = objMO.InvokeMethod("EnableStatic",newIP,null);
-                    }catch (Exception) {throw;}
-                }
-            }
-        }
-
         public void analizadorXML(string cadena)
         {
             int inicioestado = 0;

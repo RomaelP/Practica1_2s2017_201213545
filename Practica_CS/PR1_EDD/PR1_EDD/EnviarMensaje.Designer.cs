@@ -32,6 +32,7 @@
             this.BCXML = new System.Windows.Forms.Button();
             this.BEMSJ = new System.Windows.Forms.Button();
             this.TB1 = new System.Windows.Forms.TextBox();
+            this.etiquetaCargando = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -74,11 +75,20 @@
             this.TB1.Size = new System.Drawing.Size(311, 300);
             this.TB1.TabIndex = 3;
             // 
+            // etiquetaCargando
+            // 
+            this.etiquetaCargando.AutoSize = true;
+            this.etiquetaCargando.Location = new System.Drawing.Point(346, 222);
+            this.etiquetaCargando.Name = "etiquetaCargando";
+            this.etiquetaCargando.Size = new System.Drawing.Size(0, 13);
+            this.etiquetaCargando.TabIndex = 4;
+            // 
             // EnviarMensaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 324);
+            this.Controls.Add(this.etiquetaCargando);
             this.Controls.Add(this.TB1);
             this.Controls.Add(this.BEMSJ);
             this.Controls.Add(this.BCXML);
@@ -96,5 +106,6 @@
         private System.Windows.Forms.Button BCXML;
         private System.Windows.Forms.Button BEMSJ;
         private System.Windows.Forms.TextBox TB1;
+        private System.Windows.Forms.Label etiquetaCargando;
     }
 }

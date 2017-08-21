@@ -41,8 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BOperar = new System.Windows.Forms.Button();
-            this.EtqtContadormsjs = new System.Windows.Forms.Label();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.etiTam = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,15 +164,6 @@
             this.BOperar.UseVisualStyleBackColor = true;
             this.BOperar.Click += new System.EventHandler(this.BOperar_Click);
             // 
-            // EtqtContadormsjs
-            // 
-            this.EtqtContadormsjs.AutoSize = true;
-            this.EtqtContadormsjs.Location = new System.Drawing.Point(187, 23);
-            this.EtqtContadormsjs.Name = "EtqtContadormsjs";
-            this.EtqtContadormsjs.Size = new System.Drawing.Size(109, 13);
-            this.EtqtContadormsjs.TabIndex = 2;
-            this.EtqtContadormsjs.Text = "Operaciones en Cola ";
-            // 
             // btnAtras
             // 
             this.btnAtras.Location = new System.Drawing.Point(448, 12);
@@ -183,13 +174,22 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // etiTam
+            // 
+            this.etiTam.AutoSize = true;
+            this.etiTam.Location = new System.Drawing.Point(178, 13);
+            this.etiTam.Name = "etiTam";
+            this.etiTam.Size = new System.Drawing.Size(13, 13);
+            this.etiTam.TabIndex = 4;
+            this.etiTam.Text = "--";
+            // 
             // ColaMensajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 443);
+            this.Controls.Add(this.etiTam);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.EtqtContadormsjs);
             this.Controls.Add(this.BOperar);
             this.Controls.Add(this.panel1);
             this.Name = "ColaMensajes";
@@ -216,8 +216,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button BOperar;
-        private System.Windows.Forms.Label EtqtContadormsjs;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Label etiTam;
 
     }
 }

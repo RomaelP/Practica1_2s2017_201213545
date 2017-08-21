@@ -12,12 +12,12 @@ class Cola:
                 temp = temp.siguiente
                 
                 
-            nuevoNodo = NodoCola (mensaje, ip, None)
+            nuevoNodo = NodoCola (mensaje, ip, carnet, None)
             self.cont = self.cont+1
             temp.siguiente = nuevoNodo
             
         else:
-            nuevoNodo = NodoCola(mensaje, ip, None)
+            nuevoNodo = NodoCola(mensaje, ip, carnet, None)
             self.cont = self.cont+1
             self.inicio= nuevoNodo
             
@@ -41,4 +41,31 @@ class Cola:
         if self.inicio != None:
             temp = self.inicio
             return temp.ip
+    def crearArchivo():
+        archivo = open('graficarCola.txt','w')
+        archivo.close()
+    
+    def escribirArchivo():
+        temp = self.inicio
+        contador1=0
+        archivo = open('graficarCola.txt','a')
+        archivo.write('digraph G,{\n')
+        while temp != None:
+            archivo.write("nodo"+str(contador1)+"[label=<"+str(temp.ip)+" "+str(temp.mensaje)+">]\n")
+            contador1=contador1+1
+            temp=temp.siguiente
+        contador1=0
+        contador2=1
+        temp = self.inicio
+        while temp!=None:
+            if temp.siguiente != None:
+                archivo.write("nodo_"+str(contador1)+"->"+"nodo_"+str(contador2)+"\n")
+                contador1 = contador1+1
+                contador2 = contador2+1
+            temp = temp.siguiente
+        archivo.write('}')
+        archivo.close()
+        return "graficaCola"
+        
+        
         

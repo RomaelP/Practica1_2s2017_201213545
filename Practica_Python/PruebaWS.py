@@ -21,6 +21,7 @@ class WebService():  #Servidor
         carnet = str(request.form["carnet"])
         ip = str(request.form["ip"])
         mascara = str(reques.form["mascara"])
+        lista1.insertar(carnet, ip, mask)
         return "El carnet "+str(carnet)+" fue agregado a la lista"
     
     """metodo GET que devuelve el carnet con el nombre de funcion
@@ -37,6 +38,14 @@ class WebService():  #Servidor
         carnet = str(request.form['carnet'])
         lista1.modificarLista(ip, carnet)       
         return "Carnet agregado correctamente"
+    
+    @app.route('/SizeCola',methods=['GET'])
+    def size():
+        if colaMensajeRecibido.sizeCola != None:
+            return colaMensajeRecibido.sizeCola
+        else:
+            return ""
+    
     
     """metodo Post recibe como parametro un *inorden* y opera
     devuelve un valor, resultado de la operacion"""   
@@ -80,7 +89,7 @@ class WebService():  #Servidor
         pilaNumero.agregarPila(valor)        
         respuesta = pilaNumero.sacarPila()
         #ipRecup = str(request.environ['REMOTE_ADDR'])
-        r = str(carnet) +"*"+str(ip)+"*"+str(respuesta)+"*"+str(cadena)
+        r = str(carnet) +"$"+str(ip)+"$"+str(respuesta)+"$"+str(cadena)
         #r = str(respuesta)
         #res = r + " ip: " + ipRecup
         return r        
@@ -90,7 +99,7 @@ class WebService():  #Servidor
     @app.route('/mensaje',methods=['POST'])
     def metodoCola():
         mensaje = str(request.form["inorden"])
-        #carnet = str(requesr.form["carnet"])
+        #carnet = str(requesrt.form["carnet"])
         ipRecup = str(request.environ['REMOTE_ADDR'])
         colaMensajeRecibido.agregarCola(mensaje, ipRecup," ")#mandar a guardar en la cola, parametros son mensaje e IP, carnet,
         print("mensaje "+str(mensaje)+ " ip de envio "+str(ipRecup))

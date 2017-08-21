@@ -62,11 +62,5 @@ namespace PR1_EDD
                 return "";
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Prueba pb = new Prueba();
-                pb.Show();
-        }
     }
 }
