@@ -51,24 +51,31 @@ namespace PR1_EDD
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try{
+            int contEntregado = 0;
+            //try{
                 foreach (var cola in listaCola)
                 {
+                    try{
                     using(var cliente = new WebClient())
                     {
                     var vEnviar = new NameValueCollection();
                     vEnviar["inorden"] = cola.mensaje;
+                    //vEnviar["carnet"] = 
                     var respuestaMetodo = cliente.UploadValues("http://" + cola.ip + ":5000/mensaje", vEnviar);
+                    contEntregado++;
                         var respuestaConvertidaString = Encoding.Default.GetString(respuestaMetodo);
-                        Console.WriteLine(respuestaConvertidaString); 
+                        MessageBox.Show("Mensaje Enivado a: "+contEntregado+" Nodos","EDD",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        Console.WriteLine("****"+respuestaConvertidaString+" "+contEntregado); 
                     }
+                    } catch(Exception x){
                 }
-                MessageBox.Show("Mesaje Enviado", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }catch(Exception x)
+                }
+                //MessageBox.Show("Mesajes Enviados a Nodos Conectados", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            /*}catch(Exception x)
             {
                 MessageBox.Show("Mesaje No Enviado", "EDD", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine(x);
-            }
+            }*/
         }
 
      public static void AgregaraCola(string ip, string mensaje)//agregar un nuevo nodo a la cola

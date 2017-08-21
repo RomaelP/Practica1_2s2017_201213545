@@ -21,5 +21,10 @@ namespace PR1_EDD
         {
             this.Hide();
         }
+
+        private void BOperar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -45,7 +45,7 @@ class WebService():
     @app.route('/operarExpresion',methods=['POST'])
     def ResolverExpresion():
         cadena = str(request.form['inorden'])
-        #self.operarExpresion(cadena)
+        self.operarExpresion(cadena)
         caracter = ""
         valor = ""
         numero1 = ""
@@ -59,7 +59,7 @@ class WebService():
                 pilaNumero.agregarPila(valor)
                 valor = ""
             elif caracter in (' ', '('):
-                nada = "Aqui no hace nada xD xD xD"
+                nada = " "
             elif caracter == ')':
                 pilaNumero.agregarPila(valor)
                 valor = ""             
@@ -79,9 +79,9 @@ class WebService():
                 valor = valor + caracter
         pilaNumero.agregarPila(valor)        
         respuesta = pilaNumero.sacarPila()
-        #ipRecup = str(request.environ['REMOTE_ADDR'])
+        ipRecup = str(request.environ['REMOTE_ADDR'])
         r = str(respuesta)
-        #res = r + " ip: " + ipRecup
+        res = r + " ip: " + ipRecup
         return r        
     
     

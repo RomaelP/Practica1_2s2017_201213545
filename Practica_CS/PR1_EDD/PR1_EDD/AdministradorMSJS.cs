@@ -28,7 +28,7 @@ namespace PR1_EDD
             EnviarMensaje EnviarMsj = new EnviarMensaje();
             EnviarMsj.Show();
         }
-
+        
         private void BAtras_Click(object sender, EventArgs e)
         {
             this.Hide();

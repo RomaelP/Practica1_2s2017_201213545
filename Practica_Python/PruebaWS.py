@@ -2,17 +2,20 @@ from flask import Flask, request, Response
 from ListaSimple import ListaSimple
 from Pila import Pila
 from Nodo import Nodo
+from EsCola import Cola
+from NodoCola import NodoCola
 
 
 lista1 = ListaSimple()
 pilaSignos = Pila()
 pilaNumero = Pila()
-
+colaMensajeRecibido = Cola();
 
 app = Flask("EDD_codigo_ejemplo")
 
-class WebService():  
-    
+class WebService():  #Servidor
+    """metodo recibe tres parametros y devuelve un texto de 
+    confirmacion, agrega los parametros recibidos a la lista"""
     @app.route('/guardarListaS',methods=['POST'])
     def guardarLista():
         carnet = str(request.form["carnet"])
@@ -20,10 +23,14 @@ class WebService():
         mascara = str(reques.form["mascara"])
         return "El carnet "+str(carnet)+" fue agregado a la lista"
     
+    """metodo GET que devuelve el carnet con el nombre de funcion
+    conectado"""
     @app.route('/conectado',methods=['GET'])
     def activo():
         return "201213545"
     
+    """metodo POST que verifica la IP y devuelve el carnet si 
+    la ip requerida esta conectad"""
     @app.route('/agregarCarnet',methods=['POST']) 
     def AgregarCarnet():
         ip = str(request.form['ip'])
@@ -31,10 +38,13 @@ class WebService():
         lista1.modificarLista(ip, carnet)       
         return "Carnet agregado correctamente"
     
-        
-    @app.route('/operarExpresion',methods=['POST'])
-    def ResolverExpresion():
-        cadena = str(request.form['inorden'])
+    """metodo Post recibe como parametro un *inorden* y opera
+    devuelve un valor, resultado de la operacion"""   
+    @app.route('/operarExpresion',methods=['GET'])
+    def Resolver():
+        ip = colaMensajeRecibido.obtenerIP() #listo
+        cadena = colaMensajeRecibido.sacarCola() #listo
+        carnet = lista1.obtenerCarnet(ip)
         #self.operarExpresion(cadena)
         caracter = ""
         valor = ""
@@ -70,18 +80,22 @@ class WebService():
         pilaNumero.agregarPila(valor)        
         respuesta = pilaNumero.sacarPila()
         #ipRecup = str(request.environ['REMOTE_ADDR'])
-        r = str(respuesta)
+        r = str(carnet) +"*"+str(ip)+"*"+str(respuesta)+"*"+str(cadena)
+        #r = str(respuesta)
         #res = r + " ip: " + ipRecup
         return r        
     
-    
+    """recibe un texto y manda a guardar en una lista, devuelve
+    un true para verificar que recibio el mensaje"""
     @app.route('/mensaje',methods=['POST'])
     def metodoCola():
         mensaje = str(request.form["inorden"])
+        #carnet = str(requesr.form["carnet"])
         ipRecup = str(request.environ['REMOTE_ADDR'])
+        colaMensajeRecibido.agregarCola(mensaje, ipRecup," ")#mandar a guardar en la cola, parametros son mensaje e IP, carnet,
         print("mensaje "+str(mensaje)+ " ip de envio "+str(ipRecup))
         return "true"   
         
     
     if __name__ == "__main__":
-        app.run(debug=True, host='192.168.10.104')
+        app.run(debug=True, host='192.168.0.21')

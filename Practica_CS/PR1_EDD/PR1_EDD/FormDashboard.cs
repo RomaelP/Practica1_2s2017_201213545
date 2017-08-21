@@ -52,7 +52,7 @@ namespace PR1_EDD
             //aqui la llamada al timer
             MostrarLista();//llamada al metodo para mostrar datos en el dashboard
             MetodoPOSTLista();//manda los elementos al WS para guardar en una lista en Python   
-            EtiquetaIp.Text = "Nodo Actual: "+varGlobales.IpACambiar;
+            EtiquetaIp.Text = "Nodo Actual: "+varGlobales.IpACambiar+" - 201213545";
             timer1.Start();
             etiqueta1.Text = "DATOS CARGADOS";
         }

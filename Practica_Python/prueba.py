@@ -1,18 +1,25 @@
 from ListaSimple import ListaSimple
 from Nodo import Nodo
 from Pila import Pila
+from NodoCola import NodoCola
+from EsCola import Cola
 
 if __name__ == "__main__":
     print ("roma")
     pilaSignos = Pila()
     pilaNumero = Pila()
     lista = ListaSimple()
+    cola = Cola()
+    
     while True:
         print("\n---- MENU ----")
         print("1. Agregar")
         print("2. Mostrar")
         print("3. probar")
         print("4. metodo operarExpresion ")
+        #print("5. agregar pilacola")
+        #print("6. mostrar Cola")
+        #print("7. tamaño cola")
         num = input("Ingrese una opcion: ")    
         
         if num == 1: 
@@ -72,4 +79,19 @@ if __name__ == "__main__":
             r = str(respuesta)
             #res = r + " ip: " + ipRecup
             print(r)#return r            
-                        
+            
+        if num == 5:
+            mensaje = raw_input ("Ingrese un mensaje: ")
+            ip = raw_input ("Ingrese un ip: ")
+            carnet = raw_input ("Ingrese un carnet: ") 
+            cola.agregarCola(mensaje,ip,carnet)
+            
+        if num == 6:
+            cola.mostrarElementosCola()
+            
+        if num==7:
+            print(str(cola.sizeCola()))
+            
+        if num==8:
+            print str(lista.obtenerCarnet("2"))
+            

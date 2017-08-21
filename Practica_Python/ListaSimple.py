@@ -24,6 +24,14 @@ class ListaSimple():
             print("Ip: "+str(temp.ip)+" Carnet: " +temp.carnet)
             temp = temp.siguiente
             
+    def obtenerCarnet(self, ip):
+        if self.inicio != None:
+            temp = self.inicio
+            while temp != None:
+                if temp.ip == ip:
+                    return temp.carnet
+                temp = temp.siguiente    
+            
     def size(self):
         return self.contador
     
